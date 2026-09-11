@@ -55,7 +55,7 @@
             set -l derivation $argv[1]
             set -l args $argv[2..-1]
             set -l cmd "nix run --print-build-logs '.?submodules=1#$derivation'"
-            if string length --quiet "$args"
+            if string length --quiet -- "$args"
               set cmd "nix run --print-build-logs '.?submodules=1#$derivation' -- $args"
             end
             echo "> $cmd"
