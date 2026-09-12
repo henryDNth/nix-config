@@ -1,6 +1,7 @@
 {
   withSystem,
   inputs,
+  rootPath,
   ...
 }:
 {
@@ -24,6 +25,7 @@
               openblas = prev.openblas.overrideAttrs {
                 doCheck = prev.stdenv.hostPlatform.system != "i686-linux";
               };
+              mudita = final.callPackage "${rootPath}/packages/mudita" { };
             })
           ];
           config = {
