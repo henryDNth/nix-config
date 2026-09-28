@@ -86,6 +86,11 @@ let
           default = false;
         };
 
+        extras = {
+          enable = mkEnableOption "enables extra miscelleans packages and utilities";
+          default = false;
+        };
+
         module = mkOption {
           type = types.deferredModule;
         };

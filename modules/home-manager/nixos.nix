@@ -22,7 +22,8 @@
             config.flake.modules.homeManager.base
           ]
           ++ lib.optionals (params.de.type == "cosmic") [ config.flake.modules.homeManager.cosmic ]
-          ++ lib.optionals (params.gaming.enable) [ config.flake.modules.homeManager.gaming ];
+          ++ lib.optionals (params.gaming.enable) [ config.flake.modules.homeManager.gaming ]
+          ++ lib.optionals (params.extras.enable) [ config.flake.modules.homeManager.extras ];
         };
 
         useGlobalPkgs = true;
