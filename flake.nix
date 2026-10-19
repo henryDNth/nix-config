@@ -26,6 +26,11 @@
     };
 
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
+
+    curseforge = {
+      url = "github:spitfire05/curseforge-appimage-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     inputs:
@@ -39,10 +44,10 @@
 
       # Needed for external coonsumption.
       flake.flakeModules.default = (inputs.import-tree ./modules);
-      flake.overlays.default = inputs.nixpkgs.lib.composeManyExtensions [
-        inputs.self.overlays.mudita
-        inputs.self.overlays.fixes
-      ];
+      # flake.overlays.default = inputs.nixpkgs.lib.composeManyExtensions [
+      #   inputs.self.overlays.mudita
+      #   inputs.self.overlays.fixes
+      # ];
 
       imports = [
         flake.flakeModules.default

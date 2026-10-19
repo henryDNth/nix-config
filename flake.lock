@@ -38,6 +38,26 @@
         "type": "github"
       }
     },
+    "curseforge": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792319748,
+        "narHash": "sha256-RbnD9yRw8KO4F7wIYELZXtQDWwO+hNPBmQgrluIUNag=",
+        "owner": "spitfire05",
+        "repo": "curseforge-appimage-nix",
+        "rev": "7f08c399dd10f57797fc698ad1c0032674d10dbd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "spitfire05",
+        "repo": "curseforge-appimage-nix",
+        "type": "github"
+      }
+    },
     "determinate": {
       "inputs": {
         "determinate-nixd-aarch64-darwin": "determinate-nixd-aarch64-darwin",
@@ -358,6 +378,7 @@
     "root": {
       "inputs": {
         "catppuccin": "catppuccin",
+        "curseforge": "curseforge",
         "determinate": "determinate",
         "flake-parts": "flake-parts_2",
         "home-manager": "home-manager",
