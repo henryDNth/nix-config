@@ -21,6 +21,7 @@
           inherit system;
           overlays = [
             inputs.self.overlays.default
+            inputs.curseforge.overlays.default
           ];
           config = {
             allowUnfree = true;

@@ -44,10 +44,11 @@
 
       # Needed for external coonsumption.
       flake.flakeModules.default = (inputs.import-tree ./modules);
-      # flake.overlays.default = inputs.nixpkgs.lib.composeManyExtensions [
-      #   inputs.self.overlays.mudita
-      #   inputs.self.overlays.fixes
-      # ];
+      # Don't export the default overlay in the flakeModules.default
+      flake.overlays.default = inputs.nixpkgs.lib.composeManyExtensions [
+        inputs.self.overlays.mudita
+        inputs.self.overlays.fixes
+      ];
 
       imports = [
         flake.flakeModules.default
