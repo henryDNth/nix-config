@@ -19,11 +19,15 @@
       {
         _module.args.pkgs = import inputs.nixpkgs {
           inherit system;
-          overlays = [
-            inputs.self.overlays.default
-            # Don't want to have to add this input to downstream work config
-            (if inputs ? curseforge then inputs.curseforge.overlays.default else { })
-          ];
+          overlays =
+            let
+              emptyOverlay = final: prev: { };
+            in
+            [
+              inputs.self.overlays.default
+              # Don't want to have to add this input to downstream work config
+              (if inputs ? curseforge then inputs.curseforge.overlays.default else emptyOverlay)
+            ];
           config = {
             allowUnfree = true;
           };
