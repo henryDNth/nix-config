@@ -15,13 +15,14 @@
     # Modify nixpkgs once for each system.
     # https://flake.parts/system#approach-2-configure-pkgs-once-in-persystem
     perSystem =
-      { system, ... }:
+      { system, lib, ... }:
       {
         _module.args.pkgs = import inputs.nixpkgs {
           inherit system;
           overlays = [
             inputs.self.overlays.default
-            inputs.curseforge.overlays.default
+            # Don't want to have to add this input to downstream work config
+            (if inputs.curseforge != null then inputs.curseforge.overlays.default else { })
           ];
           config = {
             allowUnfree = true;
