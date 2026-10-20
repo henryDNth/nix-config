@@ -22,7 +22,7 @@
           overlays = [
             inputs.self.overlays.default
             # Don't want to have to add this input to downstream work config
-            (if inputs.curseforge != null then inputs.curseforge.overlays.default else { })
+            (if inputs ? curseforge then inputs.curseforge.overlays.default else { })
           ];
           config = {
             allowUnfree = true;
