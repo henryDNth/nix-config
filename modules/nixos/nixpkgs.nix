@@ -15,7 +15,7 @@
     # Modify nixpkgs once for each system.
     # https://flake.parts/system#approach-2-configure-pkgs-once-in-persystem
     perSystem =
-      { system, lib, ... }:
+      { system, ... }:
       {
         _module.args.pkgs = import inputs.nixpkgs {
           inherit system;
