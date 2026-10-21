@@ -1,9 +1,10 @@
 {
   flake.modules.homeManager.gaming =
-    { pkgs, ... }:
+    { pkgs, lib, ... }:
     {
       home.packages = [
-        (if pkgs ? curseforge then pkgs.curseforge else null)
-      ];
+
+      ]
+      ++ lib.optionals (pkgs ? curseforge) [ pkgs.curseforge ];
     };
 }
