@@ -31,7 +31,12 @@
           timeout = lib.mkDefault 10;
         };
 
-        consoleLogLevel = lib.mkDefault 0;
+        consoleLogLevel = lib.mkDefault 3;
+
+        kernelParams = [
+          "quiet"
+          "splash"
+        ];
 
         plymouth.enable = true;
 
@@ -44,6 +49,7 @@
             "sd_mod"
           ];
           verbose = false;
+          systemd.enable = true;
         };
 
         kernelModules = [ "kvm-intel" ];
