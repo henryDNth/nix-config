@@ -22,10 +22,12 @@
           timeout = lib.mkDefault 10;
         };
 
-        consoleLogLevel = lib.mkDefault 0;
+        consoleLogLevel = lib.mkDefault 3;
 
         kernelParams = [
           "mem_sleep_default=s2idle"
+          "quiet"
+          "splash"
         ];
 
         plymouth.enable = true;
@@ -41,6 +43,7 @@
           ];
           kernelModules = [ ];
           verbose = false;
+          systemd.enable = true;
         };
 
         kernelModules = [ "amdgpu" ];
