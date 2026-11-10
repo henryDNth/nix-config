@@ -1,10 +1,11 @@
 {
   flake.modules.homeManager.base =
-    { params, ... }:
+    { params, pkgs, ... }:
     {
       home = {
         username = params.user.name;
         homeDirectory = "/home/${params.user.name}";
+        packages = with pkgs; [ mpv ];
       };
       programs.home-manager.enable = true;
       # HM release-26.05 builds options.json with context-less references to

@@ -44,8 +44,6 @@
           ubuntu-classic
           unscii
           cascadia-code
-          discord-ptb
-          mpv
         ];
       };
 
